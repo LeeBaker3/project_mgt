@@ -1,0 +1,9 @@
+/* base.css */
+h1 {
+    color: red;
+}
+
+.logo {
+    height: 300px;
+    width: auto;
+}
