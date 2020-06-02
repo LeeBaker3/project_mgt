@@ -1,0 +1,5 @@
+[31m[1mWarning[39m[22m: Python [34m[22m3.8[39m[22m was not found on your system…
+[31m[22mNeither 'pyenv' nor 'asdf' could be found to install Python.[39m[22m
+You can specify specific versions of Python with:
+[31m[22m$ pipenv --python path/to/python[39m[22m
+[0m
