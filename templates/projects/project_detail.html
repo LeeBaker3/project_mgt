@@ -1,0 +1,12 @@
+<!-- project_detail.html -->
+{% extends '_base.html' %}
+
+{% block title %}{{ project.project_name }}{% endblock title %}
+
+{% block content %}
+    <div class="project_detail">
+        <h2><a href="">{{ project.project_name }}</a></h2>
+        <p>{{ project.project_number }}</p>
+        <p>{{ project.project_manager }}</p>
+    </div>
+{% endblock content %}
