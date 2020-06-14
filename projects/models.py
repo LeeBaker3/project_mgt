@@ -20,3 +20,16 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse("project_detail", args=[str(self.id)])
+
+
+class Deliverable(models.Model):
+    project = models.ForeignKey(
+        Project,
+        on_delete=models.CASCADE,
+        related_name='deliverables'
+    )
+    deliverable_name = models.CharField(max_length=255)
+    deliverable_description = models.TextField(max_length=1000)
+
+    def __str__(self):
+        return self.deliverable_name

@@ -8,5 +8,13 @@
         <h2><a href="">{{ project.project_name }}</a></h2>
         <p>{{ project.project_number }}</p>
         <p>{{ project.project_manager }}</p>
+        <div>
+            <h3>Deliverables</h3>
+            <ul>
+                {% for deliverable in project.deliverables.all  %}
+                    <li>{{ deliverable.deliverable_name}} {{ deliverable.deliverable_description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 {% endblock content %}

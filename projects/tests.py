@@ -1,6 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from .models import Project
+from .models import Project, Deliverable
+from django.contrib.auth import get_user_model
 
 # Create your tests here
 
@@ -8,10 +9,22 @@ from .models import Project
 class ProjectTests(TestCase):
 
     def setUp(self):
+        self.user = get_user_model().objects.create_user(
+            username='projectuser',
+            email='projectuser@email.com',
+            password='testpass123'
+        )
+
         self.project = Project.objects.create(
             project_name='Moon Landing',
             project_manager='Neil Armstrong',
             project_number='abc123'
+        )
+
+        self.deliverable = Deliverable.objects.create(
+            project=self.project,
+            deliverable_name='Engine',
+            deliverable_description='Rocket for stage 1'
         )
 
     def test_project_listing(self):
@@ -31,4 +44,6 @@ class ProjectTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
         self.assertContains(response, 'Moon Landing')
+        self.assertContains(response, 'Engine')
+        self.assertContains(response, 'Rocket for stage 1')
         self.assertTemplateUsed(response, 'projects/project_detail.html')
