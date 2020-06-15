@@ -150,6 +150,12 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
+# Absolute file system path to directory for upload files
+MEDIA_URL = '/media/'
+
+# The URL for the media in the templates files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 AUTH_USER_MODEL = 'users.CustomUser'
 

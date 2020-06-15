@@ -5,6 +5,9 @@
 
 {% block content %}
     <div class="project_detail">
+        {% if project.logo %}
+            <img class='logo' src='{{ project.logo.url }}' alt='{{ project.title }}'>
+        {% endif %}
         <h2><a href="">{{ project.project_name }}</a></h2>
         <p>{{ project.project_number }}</p>
         <p>{{ project.project_manager }}</p>
