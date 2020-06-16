@@ -16,6 +16,11 @@ class Project(models.Model):
     project_number = models.CharField(max_length=20)
     logo = models.ImageField(upload_to='logos/', blank=True)
 
+    class Meta:
+        permissions = [
+            ('special_status', 'can_read_all_projects')
+        ]
+
     def __str__(self):
         return self.project_name
 
