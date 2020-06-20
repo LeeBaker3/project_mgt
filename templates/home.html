@@ -6,7 +6,10 @@
 
 {% block content %}
 <h1>Homepage</h1>
-<img class="logo" src="{% static 'images/logo.jpeg' %}" >
+<img class="logo" src="{% static 'images/logo.jpeg' %}">
+<form class="form-inline mt-2 mt-md-0" action="{% url 'search_results' %}" method="get">
+    <input name="q" class="form-custom-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+</form>
     {% if user.is_authenticated %}
         Hi {{ user.email }}
         <p><a href="{% url 'account_logout' %}">Log Out</a></p>

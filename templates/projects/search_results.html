@@ -1,0 +1,17 @@
+<!-- search_results.html -->
+{% extends '_base.html' %}
+
+{% block title %}Search{% endblock title %}
+
+{% block content %}
+<h1>Search Results</h1>
+
+{% for project in project_list %}
+<div>
+    <h3><a href="{{ project.get_absolute_url  }}">{{ project.project_name }}</a></h3>
+    <p>Project Manager: {{ project.project_manager }}</p>
+    <p>Project Number: {{ project.project_number }}</p>
+</div>
+
+{% endfor %}
+{% endblock content %}
