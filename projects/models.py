@@ -17,6 +17,10 @@ class Project(models.Model):
     logo = models.ImageField(upload_to='logos/', blank=True)
 
     class Meta:
+        indexes = [
+            models.Index(fields=['id'], name='id_index')
+        ]
+
         permissions = [
             ('special_status', 'can_read_all_projects')
         ]
