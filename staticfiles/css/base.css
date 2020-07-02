@@ -1,0 +1,10 @@
+/* base.css */
+h1 {
+    color: red;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    max-width: 50%
+}

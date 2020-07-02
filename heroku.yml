@@ -1,0 +1,11 @@
+setuo:
+  addons:
+    - plan: heroku-postgresql
+build:
+  docker: Dockerfile
+release:
+  image: web
+  command:
+    - python manage.py collectstatic --noinput
+run:
+  web: gunicorn project_mgt.wsgi
