@@ -1,0 +1,14 @@
+<!-- customer_detail.html -->
+{% extends '_base.html' %}
+
+{% block title %}{{ customer.name }}{% endblock title %}
+
+{% block content %}
+<div class="customer-detail">
+    <h2><a href="">{{ customer.name }}</a></h2>
+    {% if customer.logo %}
+        <img class='logo' src='{{ customer.logo.url }}' alt='No logo'>
+    {% endif %}
+
+</div>
+{% endblock content %}

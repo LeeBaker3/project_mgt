@@ -11,8 +11,8 @@ class ProjectTests(TestCase):
 
     def setUp(self):
         self.user = get_user_model().objects.create_user(
-            username='projectuser',
-            email='projectuser@email.com',
+            username='testuser',
+            email='testuser@email.com',
             password='testpass123'
         )
         self.special_permission = Permission.objects.get(
@@ -37,7 +37,7 @@ class ProjectTests(TestCase):
         self.assertEqual(f'{self.project.project_number}', 'abc123')
 
     def test_project_list_view_for_logged_in_user(self):
-        self.client.login(email='projectuser@email.com',
+        self.client.login(email='testuser@email.com',
                           password='testpass123')
         response = self.client.get(reverse('project_list'))
         self.assertEqual(response.status_code, 200)
@@ -57,7 +57,7 @@ class ProjectTests(TestCase):
         self.assertContains(response, 'Log In')
 
     def test_project_detail_view_with_permissions(self):
-        self.client.login(email='projectuser@email.com',
+        self.client.login(email='testuser@email.com',
                           password='testpass123')
         self.user.user_permissions.add(self.special_permission)
         response = self.client.get(self.project.get_absolute_url())

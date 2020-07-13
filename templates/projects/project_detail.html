@@ -4,20 +4,27 @@
 {% block title %}{{ project.project_name }}{% endblock title %}
 
 {% block content %}
-    <div class="project_detail">
-        {% if project.logo %}
+<div class="project_detail">
+    <!-- {% if project.logo %}
             <img class='logo' src='{{ project.logo.url }}' alt='{{ project.title }}'>
+        {% endif %} -->
+    {% if  project.customer %}
+        {% if project.customer.logo %}
+        <img class='logo' src='{{ project.customer.logo.url }}' alt='{{ project.title }}'>
         {% endif %}
-        <h2><a href="">{{ project.project_name }}</a></h2>
-        <p>{{ project.project_number }}</p>
-        <p>{{ project.project_manager }}</p>
-        <div>
-            <h3>Deliverables</h3>
-            <ul>
-                {% for deliverable in project.deliverables.all  %}
-                    <li>{{ deliverable.deliverable_name}} {{ deliverable.deliverable_description }}</li>
-                {% endfor %}
-            </ul>
-        </div>
+        <h2>{{ project.customer.name }}</h2>
+    {% endif %}
+
+    <h2>{{ project.project_name }}</h2>
+    <p>{{ project.project_number }}</p>
+    <p>{{ project.project_manager }}</p>
+    <div>
+        <h3>Deliverables</h3>
+        <ul>
+            {% for deliverable in project.deliverables.all  %}
+            <li>{{ deliverable.deliverable_name}} {{ deliverable.deliverable_description }}</li>
+            {% endfor %}
+        </ul>
     </div>
+</div>
 {% endblock content %}

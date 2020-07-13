@@ -24,7 +24,6 @@ ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = '-4y-lpsb9)qxxjujuy5uk*2&x%(w1f+lnn-t06vvi+f-3xou9j'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -36,7 +35,6 @@ ALLOWED_HOSTS = ['young-island-83099.com',
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -57,6 +55,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'projects.apps.ProjectsConfig',
+    'customers.apps.CustomersConfig',
 ]
 
 MIDDLEWARE = [

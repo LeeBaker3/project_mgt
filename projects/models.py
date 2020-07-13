@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.urls import reverse
+from customers.models import Customer
 
 # Create your models here.
 
@@ -14,7 +15,9 @@ class Project(models.Model):
     project_name = models.CharField(max_length=200)
     project_manager = models.CharField(max_length=200)
     project_number = models.CharField(max_length=20)
-    logo = models.ImageField(upload_to='logos/', blank=True)
+    customer = models.ForeignKey(
+        Customer, related_name='customer', null=True, on_delete=models.SET('deleted'))
+    #logo = models.ImageField(upload_to='logos/', blank=True)
 
     class Meta:
         indexes = [
