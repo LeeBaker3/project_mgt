@@ -1,10 +1,25 @@
 /* base.css */
 h1 {
-    color: red;
+    color: blue;
 }
 
 .logo {
     height: 50px;
     width: auto;
     max-width: 50%
+}
+
+/* Remove Asterisk next to the Email and Password fields on the Login page */
+.asteriskField {
+    display: none;
+}
+
+/* Improve the alert layout on login page when a failed login happens */
+form .alert ul li {
+    list-style: none;
+}
+
+form .alert ul {
+    padding: 0;
+    margin: 0;
 }
