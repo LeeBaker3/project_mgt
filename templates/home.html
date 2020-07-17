@@ -6,17 +6,19 @@
 
 {% block content %}
 <h1>Homepage</h1>
-<img class="logo" src="{% static 'images/logo.jpeg' %}">
-<form class="form-inline mt-2 mt-md-0" action="{% url 'search_results' %}" method="get">
-    <input name="q" class="form-custom-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-</form>
-    {% if user.is_authenticated %}
-        Hi {{ user.email }}
+<img class="branding-logo" src="{% static 'images/logo.jpeg' %}">
+<div>
+    {% comment %} <form class="form-inline mt-2 mt-md-0" action="{% url 'search_results' %}" method="get">
+        <input name="q" class="form-custom-control mr-sm-2" type="text" placeholder="Search Projects"
+            aria-label="Search">
+    </form> {% endcomment %}
+</div>
+{% if user.is_authenticated %}
+    Hi {{ user.email }}
         <p><a href="{% url 'account_logout' %}">Log Out</a></p>
     {% else %}
-        <p>You are not logged in</p>
+    <p>You are not logged in</p>
         <a href="{% url 'account_login' %}">Log in</a>
         <a href="{% url 'account_signup' %}">Sign Up</a>
-
     {% endif %}
 {% endblock content %}

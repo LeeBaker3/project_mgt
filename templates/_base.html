@@ -15,6 +15,10 @@
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4\
      mb-3 bg-white border-bottom shadow-sm">
       <a href="{% url 'home' %}" class="navbar-brand my-2 mr-md-auto font-weight-normal">Project Mgt</a>
+      <form class="form-inline" action="{% url 'search_results' %}" method="get">
+        <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search Projects"
+            aria-label="Search">
+      </form>
       <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href='{% url 'customer_list' %}'>Customers</a>
         <a class="p-2 text-dark" href='{% url 'project_list' %}'>Projects</a>

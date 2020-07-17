@@ -3,10 +3,11 @@ h1 {
     color: blue;
 }
 
-.logo {
-    height: 50px;
+.branding-logo {
+    height: 100px;
     width: auto;
-    max-width: 50%
+    max-width: 50%;
+    padding-bottom: 5px;
 }
 
 /* Remove Asterisk next to the Email and Password fields on the Login page */
