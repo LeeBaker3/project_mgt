@@ -13,21 +13,21 @@
   <header>
     <!-- Fixed navbar -->
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4\
-     mb-3 bg-white border-bottom shadow-sm">
+     mb-3 border-bottom shadow-sm">
       <a href="{% url 'home' %}" class="navbar-brand my-2 mr-md-auto font-weight-normal">Project Mgt</a>
       <form class="form-inline" action="{% url 'search_results' %}" method="get">
         <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search Projects"
             aria-label="Search">
       </form>
       <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href='{% url 'customer_list' %}'>Customers</a>
-        <a class="p-2 text-dark" href='{% url 'project_list' %}'>Projects</a>
-        <a class="p-2 text-dark" href="{% url 'about' %}">About</a>
+        <a class="p-2" href='{% url 'customer_list' %}'>Customers</a>
+        <a class="p-2" href='{% url 'project_list' %}'>Projects</a>
+        <a class="p-2" href="{% url 'about' %}">About</a>
         {% if user.is_authenticated %}
-          <a class="p-2 text-dark" href="{% url 'account_logout' %}">Log Out</a>
+          <a class="p-2" href="{% url 'account_logout' %}">Log Out</a>
         {% else %}
-          <a class="p-2 text-dark" href="{% url 'account_login' %}">Log In</a>
-          <a class="btn btn-outline-primary"
+          <a class="p-2" href="{% url 'account_login' %}">Log In</a>
+          <a class="btn btn-outline-light"
             href="{% url 'account_signup' %}">Sign Up</a>
         {% endif %}
       </nav>
