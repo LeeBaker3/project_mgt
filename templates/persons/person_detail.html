@@ -1,0 +1,10 @@
+<!-- customer_detail.html -->
+{% extends '_base.html' %}
+
+{% block title %}{{ person.first_name }} {{ person.last_name }}{% endblock title %}
+
+{% block content %}
+<div class="person-detail">
+    <h2>{{ person.title }} {{ person.first_name }} {{ person.last_name }}</h2>
+</div>
+{% endblock content %}
