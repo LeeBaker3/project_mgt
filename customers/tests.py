@@ -15,9 +15,6 @@ class CustomerTest(TestCase):
             email='testuser@email.com',
             password='testpass123'
         )
-        self.special_permission = Permission.objects.get(
-            codename='special_status'
-        )
 
         self.customer = Customer.objects.create(
             name='NASA',

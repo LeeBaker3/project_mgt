@@ -15,9 +15,6 @@ class ProjectTests(TestCase):
             email='testuser@email.com',
             password='testpass123'
         )
-        self.special_permission = Permission.objects.get(
-            codename='special_status'
-        )
 
         self.project = Project.objects.create(
             project_name='Moon Landing',
@@ -55,16 +52,3 @@ class ProjectTests(TestCase):
             '%s?next=/projects/' % (reverse('account_login'))
         )
         self.assertContains(response, 'Log In')
-
-    def test_project_detail_view_with_permissions(self):
-        self.client.login(email='testuser@email.com',
-                          password='testpass123')
-        self.user.user_permissions.add(self.special_permission)
-        response = self.client.get(self.project.get_absolute_url())
-        no_response = self.client.get('/projects/12345/')
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(no_response.status_code, 404)
-        self.assertContains(response, 'Moon Landing')
-        self.assertContains(response, 'Engine')
-        self.assertContains(response, 'Rocket for stage 1')
-        self.assertTemplateUsed(response, 'projects/project_detail.html')

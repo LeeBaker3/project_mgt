@@ -19,7 +19,6 @@ class ProjectListView(LoginRequiredMixin, ListView):
 
 class ProjectDetailView(
         LoginRequiredMixin,
-        PermissionRequiredMixin,
         DetailView):
 
     model = Project
