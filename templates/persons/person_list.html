@@ -4,9 +4,13 @@
 {% block title %}People{% endblock title %}
 
 {% block content %}
-    {% for person in person_list %}
+    <div>
+        <h1>Person List</h1>
+        <a class="btn btn-primary" href="{% url 'person_create' %}">Create</a>
+    </div>
+{% for person in person_list %}
     <div>
         <h2><a href="{{ person.get_absolute_url }}">{{ person.first_name }} {{ person.last_name }}</a></h2>
     </div>
-    {% endfor %}
+{% endfor %}
 {% endblock content %}

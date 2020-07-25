@@ -5,6 +5,9 @@
 
 {% block content %}
 <div class="person-detail">
-    <h2>{{ person.title }} {{ person.first_name }} {{ person.last_name }}</h2>
+    <h2>{{ person.first_name }} {{ person.last_name }}</h2>
+    <p>Title: {{ person.title }}</p>
+    <a class="btn btn-primary" href="{% url 'person_update' pk=person.id %}">Edit</a>
+    <a class="btn btn-primary" href="{% url 'person_delete' pk=person.id %}">Delete</a>
 </div>
 {% endblock content %}

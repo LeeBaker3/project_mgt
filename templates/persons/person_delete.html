@@ -1,0 +1,16 @@
+<!-- delete_person.html -->
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Delete Person{% endblock title %}
+
+{% block content %}
+<div class="delete-person">
+    <h1 class="h3 mb-3 font-weight-normal">Delete Person</h1>
+    <form class="" method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete {{ person.first_name }} {{ person.last_name }}</p>
+        <button class="btn btn-success" type="submit">Delete</button>
+    </form>
+</div>
+{% endblock content %}
