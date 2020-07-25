@@ -24,10 +24,6 @@ class Project(models.Model):
             models.Index(fields=['id'], name='id_index')
         ]
 
-        permissions = [
-            ('special_status', 'can_read_all_projects')
-        ]
-
     def __str__(self):
         return self.project_name
 

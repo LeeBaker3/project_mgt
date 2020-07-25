@@ -26,7 +26,6 @@ class ProjectDetailView(
     context_object_name = 'project'
     template_name = 'projects/project_detail.html'
     login_url = 'account_login'
-    permission_required = 'projects.special_status'
 
 
 class SearchResultsListView(ListView):
