@@ -19,7 +19,7 @@
     <p>{{ project.project_number }}</p>
     <p>{{ project.project_manager }}</p>
     <div>
-        <h3>Deliverables</h3>
+        <h4>Deliverables</h4>
         <ul>
             {% for deliverable in project.deliverables.all  %}
             <li>{{ deliverable.deliverable_name}} {{ deliverable.deliverable_description }}</li>

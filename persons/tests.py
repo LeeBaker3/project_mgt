@@ -66,6 +66,13 @@ class PersonsTests(TestCase):
     def test_person_create_view_for_logged_in_user(self):
         self.client.login(email='testuser@email.com',
                           password='testpass123')
+        url = reverse('person_create')
+        response = self.client.post(url,
+                                    {'title': 'Astronaut',
+                                     'first_name': 'Michael',
+                                     'last_name': 'Collins'})
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, (reverse('person_list')))
 
     def test_person_detail_view_for_logged_in_user(self):
         self.client.login(email='testuser@email.com',
