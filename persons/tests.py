@@ -1,6 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from .models import Person
+from .forms import PersonForm
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Permission
 
@@ -156,3 +157,9 @@ class PersonsTests(TestCase):
                                             self.person.id)
         )
         self.assertContains(response, 'Log In')
+    
+    def test_person_form_is_valid(self):
+        form = PersonForm(data={'title': 'Astronaut',
+                                'first_name': 'Michael',
+                                'last_name': 'Collins'}))
+        self.assertTrue(form.is_valid())
