@@ -10,7 +10,7 @@
     <form class="" method="post">
         {% csrf_token %}
         <p>Are you sure you want to delete {{ person.first_name }} {{ person.last_name }}</p>
-        <button class="btn btn-success" type="submit">Delete</button>
+        <button class="btn btn-danger" type="submit">Delete</button>
     </form>
 </div>
 {% endblock content %}

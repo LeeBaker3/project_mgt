@@ -5,26 +5,33 @@
 
 {% block content %}
 <div class="project_detail">
-    <!-- {% if project.logo %}
-            <img class='logo' src='{{ project.logo.url }}' alt='{{ project.title }}'>
-        {% endif %} -->
     {% if  project.customer %}
-        {% if project.customer.logo %}
-        <img class='logo' src='{{ project.customer.logo.url }}' alt='{{ project.title }}'>
-        {% endif %}
-        <h2>{{ project.customer.name }}</h2>
+    {% if project.customer.logo %}
+    <img class='logo' src='{{ project.customer.logo.url }}' alt='{{ project.title }}'>
+    {% endif %}
+    <h2>{{ project.customer.name }}</h2>
     {% endif %}
 
     <h2>{{ project.project_name }}</h2>
     <p>{{ project.project_number }}</p>
     <p>{{ project.project_manager }}</p>
+    <a class="btn btn-primary" href="{% url 'project_update' pk=project.id %}">Edit</a>
+    <a class="btn btn-danger" href="{% url 'project_delete' pk=project.id %}">Delete</a>
+    <hr>
     <div>
         <h4>Deliverables</h4>
+        <a class="btn btn-primary" href="{% url 'project_deliverable_create' project_id=project.id %}">Add
+            Deliverable</a>
         <ul>
             {% for deliverable in project.deliverables.all  %}
-            <li>{{ deliverable.deliverable_name}} {{ deliverable.deliverable_description }}</li>
+            <li>
+                {{ deliverable.deliverable_name}} {{ deliverable.deliverable_description }}
+                <a class="btn btn-primary" href="{% url 'project_deliverable_update' pk=deliverable.id %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'project_deliverable_delete' pk=deliverable.id %}">Delete</a>
+            </li>
             {% endfor %}
         </ul>
+
     </div>
 </div>
 {% endblock content %}

@@ -157,9 +157,9 @@ class PersonsTests(TestCase):
                                             self.person.id)
         )
         self.assertContains(response, 'Log In')
-    
+
     def test_person_form_is_valid(self):
         form = PersonForm(data={'title': 'Astronaut',
                                 'first_name': 'Michael',
-                                'last_name': 'Collins'}))
+                                'last_name': 'Collins'})
         self.assertTrue(form.is_valid())

@@ -4,6 +4,10 @@
 {% block title %}Projects{% endblock title %}
 
 {% block content %}
+    <div>
+        <h1>Project List</h1>
+        <a class="btn btn-primary" href="{% url 'project_create' %}">Create</a>
+    </div>
     {% for project in project_list %}
         <div>
             <h2><a href="{{ project.get_absolute_url }}">{{ project.project_number }} {{ project.project_name }}</a></h2>

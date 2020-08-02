@@ -1,0 +1,16 @@
+<!-- deliverable_delete.html -->
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Delete Deliverable{% endblock title %}
+
+{% block content %}
+<div class="delete-project">
+    <h1 class="h3 mb-3 font-weight-normal">Delete Deliverable</h1>
+    <form class="" method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete the <b>{{ deliverable.name }}</b> deliverable</p>
+        <button class="btn btn-danger" type="submit">Delete</button>
+    </form>
+</div>
+{% endblock content %}

@@ -1,12 +1,12 @@
-<!-- update_person.html -->
+<!-- deliverable_update.html -->
 {% extends '_base.html' %}
 {% load crispy_forms_tags %}
 
-{% block title %}Update Person{% endblock title %}
+{% block title %}Update Deliverables{% endblock title %}
 
 {% block content %}
-<div class="update-person">
-    <h1 class="h3 mb-3 font-weight-normal">Update Person</h1>
+<div class="update-project">
+    <h1 class="h3 mb-3 font-weight-normal">Update Project Deliverables</h1>
     <form class="" method="post">
         {% csrf_token %}
         {{ form|crispy }}
