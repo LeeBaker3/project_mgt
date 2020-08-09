@@ -42,3 +42,6 @@ class Deliverable(models.Model):
 
     def __str__(self):
         return self.deliverable_name
+
+    def get_absolute_url(self):
+        return reverse("deliverable_detail", args=[str(self.id)])

@@ -53,6 +53,15 @@ class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     login_url = 'account_login'
 
 
+class ProjectDeliverableDetailView(
+        LoginRequiredMixin,
+        DetailView):
+    model = Deliverable
+    context_object_name = 'deliverable'
+    template_name = 'projects/deliverable_detail.html'
+    login_url = 'account_login'
+
+
 class ProjectDeliverableCreateView(LoginRequiredMixin, CreateView):
     model = Deliverable
     form_class = DeliverableForm

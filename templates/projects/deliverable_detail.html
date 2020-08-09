@@ -1,0 +1,15 @@
+<!-- deliverable_detail.html -->
+{% extends '_base.html' %}
+
+{% block title %}{{ deliverable.deliverable_name }}{% endblock title %}
+
+{% block content %}
+<div class="deliverable_detail">
+    <h2>{{ deliverable.deliverable_name }}</h2>
+    <p>{{ deliverable.project.project_name }}</p>
+    <p>{{ deliverable.deliverable_description}}</p>
+    <a class="btn btn-primary" href="{% url 'deliverable_update' pk=deliverable.id %}">Edit</a>
+    <a class="btn btn-danger" href="{% url 'deliverable_delete' pk=deliverable.id %}">Delete</a>
+</div>
+</div>
+{% endblock content %}
